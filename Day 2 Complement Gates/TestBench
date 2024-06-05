@@ -1,0 +1,45 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 02.01.2024 20:54:28
+// Design Name: 
+// Module Name: Complement_gates_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_complement_gates;
+  reg input1_tb, input2_tb;// Declare testbench signals
+  wire notoutput_tb, nandoutput_tb, noroutput_tb, xnoroutput_tb;
+    // Instantiate the module under test
+  complement_gates uut (.input1(input1_tb),.input2(input2_tb),.notoutput(notoutput_tb),.nandoutput(nandoutput_tb),
+  .noroutput(noroutput_tb),.xnoroutput(xnoroutput_tb));
+ // Initial block for applying input values
+  initial begin
+    input1_tb = 0;// Test Case 1
+    input2_tb = 0;
+     #10
+    input1_tb = 0;// Test Case 2
+    input2_tb = 1;
+     #10
+    input1_tb = 1;// Test Case 3
+    input2_tb = 0;
+     #10
+    input1_tb = 1;// Test Case 4
+    input2_tb = 1;
+    #10
+    $finish;
+  end
+endmodule
