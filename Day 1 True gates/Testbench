@@ -1,1 +1,44 @@
+`timescale 1ns/1ns  // Specify the simulation timescale
+
+module testbench;
+
+  // Declare signals for test bench
+  reg input1, input2;
+  wire output1, output2, output3;
+
+  // Instantiate the module under test
+  true_gates uut (
+    .input1(input1),
+    .input2(input2),
+    .output1(output1),
+    .output2(output2),
+    .output3(output3)
+  );
+
+  // Provide stimulus using initial block
+  initial begin
+    // Test Case 1
+    input1 = 0;
+    input2 = 0;
+    #10;  // Wait for 10 time units
+    $display("Test Case 1: input1=%b, input2=%b, output1=%b, output2=%b, output3=%b", input1, input2, output1, output2, output3);
+
+    // Test Case 2
+    input1 = 1;
+    input2 = 0;
+    #10;  // Wait for 10 time units
+    $display("Test Case 2: input1=%b, input2=%b, output1=%b, output2=%b, output3=%b", input1, input2, output1, output2, output3);
+
+    // Test Case 3
+    input1 = 1;
+    input2 = 1;
+    #10;  // Wait for 10 time units
+    $display("Test Case 3: input1=%b, input2=%b, output1=%b, output2=%b, output3=%b", input1, input2, output1, output2, output3);
+
+    // Add more test cases as needed
+
+    $finish;  // Terminate simulation
+  end
+
+endmodule
 
