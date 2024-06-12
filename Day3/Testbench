@@ -1,0 +1,38 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04.01.2024 20:59:43
+// Design Name: 
+// Module Name: full_adder_tb
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module full_adder_tb;
+reg x,y,z;
+wire sum, carry;
+full_adder dut(.x(x),.y(y),.z(z),.s(sum),.c(carry));
+initial begin 
+x=0;y=0;z=0;#10;//Test case1
+x=0;y=0;z=1;#10;//Test case2
+x=0;y=1;z=0;#10;//Test case3
+x=0;y=1;z=1;#10;//Test case4
+x=1;y=0;z=0;#10;//Test case5
+x=1;y=0;z=1;#10;//Test case6
+x=1;y=1;z=0;#10;//Test case7
+x=1;y=1;z=1;#10;//Test case8
+$finish;
+end
+endmodule
