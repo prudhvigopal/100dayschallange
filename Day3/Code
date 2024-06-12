@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 04.01.2024 15:06:26
+// Design Name: 
+// Module Name: full_adder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+//Day 4 Designing full adder using two half adders
+module half_adder(a,b,sum,carry);//Design module 1 to realize the functions of two half adders
+input a,b;
+output sum,carry;
+xor g1 (sum,a,b);
+and g2 (carry,a,b);
+endmodule
+
+module or_gate(p,q,r);//Design of module 2 to represent the function or gate
+input p,q;
+output r;
+or g1 (r,p,q);
+endmodule
+
+module full_adder(x,y,z,s,c);//Design of module 3 is to realize the full adder using above two modules
+input x,y,z;
+output s,c;
+wire w1,w2,w3;
+half_adder block1 (x,y,w1,w2);
+half_adder block2 (z,w1,s,w3);
+or_gate    block3 (w2,w3,c);
+endmodule
