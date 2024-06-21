@@ -1,0 +1,17 @@
+//testbench for 4-bit Parallel Prefix adder
+module tb_kogge_stone_adder_4bit;
+    reg [3:0] A, B;
+    wire [3:0] sum;
+    kogge_stone_adder_4bit uut(
+        .A(A),
+        .B(B),
+        .sum(sum)
+    );
+    initial begin
+    
+        A = 4'b0000;B = 4'b1111;#10;//test case1
+        A = 4'b1001;B = 4'b1100;#10;//test case2
+        A = 4'b1111;B = 4'b0001;#10;//test case3
+        $finish;
+    end
+endmodule
