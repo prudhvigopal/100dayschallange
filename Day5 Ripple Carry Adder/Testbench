@@ -1,0 +1,37 @@
+    `timescale 1ns / 1ps
+    //////////////////////////////////////////////////////////////////////////////////
+    // Company: 
+    // Engineer: 
+    // 
+    // Create Date: 05.01.2024 18:05:38
+    // Design Name: 
+    // Module Name: rca_adder_tb
+    // Project Name: 
+    // Target Devices: 
+    // Tool Versions: 
+    // Description: 
+    // 
+    // Dependencies: 
+    // 
+    // Revision:
+    // Revision 0.01 - File Created
+    // Additional Comments:
+    // 
+    //////////////////////////////////////////////////////////////////////////////////
+    
+    //testbench for the rca_adder
+    module rca_adder_tb;
+    reg [3:0] bit1,bit2;
+    reg cin;
+    wire [3:0] sum;
+    wire co;
+    rca_adder uut (.a(bit1),.b(bit2),.cin(cin),.s(sum),.co(co));
+    initial begin
+    cin = 0;
+    bit1 = 4'b0000;bit2 = 4'b1111;#10//testcase1 
+    bit1 = 4'b0011;bit2 = 4'b1001;#10//testcase2 
+    bit1 = 4'b1100;bit2 = 4'b0110;#10//testcase3 
+    bit1 = 4'b0100;bit2 = 4'b1011;#10//testcase4 
+    $finish;
+    end
+    endmodule
