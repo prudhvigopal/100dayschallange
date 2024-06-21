@@ -1,0 +1,9 @@
+//half and full designing of binary subtractors
+module half_fullsubtractor(a,b,bin,hdiff,hbout,fdiff,fbout);
+input a,b,bin;
+output hdiff,hbout,fdiff,fbout;
+assign hdiff = b^bin;//difference obtain by the half subtractor
+assign hbout = ~(b)&bin; //borrow obtain by the half subtractor
+assign fdiff = a^b^bin;//differrence obtain by the full subtractor 
+assign fbout = ((~(a)&b)|((bin)&(~(a^b))));//borrow obtain by the full subtractor
+endmodule
