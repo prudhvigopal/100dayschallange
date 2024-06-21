@@ -1,0 +1,18 @@
+//testbench for the stimulation of the given half and full subtractor modules
+module subtractor_tb;
+reg a,b,bin;
+wire fdiff,fbout,hdiff,hbout;
+half_fullsubtractor uut (.a(a),.b(b),.bin(bin),.hdiff(hdiff),.hbout(hbout),.fdiff(fdiff),.fbout(fbout));
+initial begin
+//8 test cases
+a=0;b=0;bin=0;#10;
+a=0;b=0;bin=1;#10;                    
+a=0;b=1;bin=0;#10;
+a=0;b=1;bin=1;#10;
+a=1;b=0;bin=0;#10;
+a=1;b=0;bin=1;#10;
+a=1;b=1;bin=0;#10;
+a=1;b=1;bin=1;#10;
+$finish;
+end
+endmodule
