@@ -1,0 +1,23 @@
+//Day 5 Desgn of the 4-bit Ripple Carry adder using Full Adder modules
+//Design of the full adder module 1
+module FA(x, y, z, sum, carry);
+  input x, y, z;
+  output sum, carry;
+  assign sum = x ^ y ^ z;
+  assign carry = (x & y) | (y & z) | (z & x);
+endmodule
+//Design of the RCA using the moduele 1 full adders
+module rca_adder(a, b, cin, s, co);
+  input [3:0] a, b;
+  input cin;
+  output [3:0] s;
+  output co;
+  wire c0, c1, c2, c3;
+//using of the 4 full adder modules to build the RCA
+  FA fa1(a[0], b[0], cin, s[0], c0);
+  FA fa2(a[1], b[1], c0, s[1], c1);
+  FA fa3(a[2], b[2], c1, s[2], c2);
+  FA fa4(a[3], b[3], c2, s[3], c3);
+
+  assign co = c3;
+endmodule
